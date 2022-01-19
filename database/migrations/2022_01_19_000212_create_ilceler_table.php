@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostsTable extends Migration
+class CreateIlcelerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->id();
-            $table->string("title");
-            $table->text("description");
-            $table->timestamps();
+        Schema::create('ilceler', function (Blueprint $table) {
+            $table->increments('id')->start_from(1);
+            $table->integer('ilId');
+            $table->text('ilceAdi');
         });
     }
 
@@ -28,6 +27,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('ilceler');
     }
 }
